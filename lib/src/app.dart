@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'pages/Home.dart';
 import 'pages/About.dart';
 import 'pages/RandomWord.dart';
+import 'pages/GeoLocation.dart';
 
 class App extends StatefulWidget {
   @override
@@ -14,12 +15,14 @@ class _AppState extends State<App> {
   Map<String, Widget> _routeMap = {
     '/home': Home(),
     '/about': About(),
-    '/random_words': RandomWords()
+    '/random_words': RandomWords(),
+    '/geolocation': GeoLocation(),
   };
   List<String> _bottomNavigationRouteList = [
     '/home',
     '/about',
-    '/random_words'
+    '/random_words',
+    '/geolocation'
   ];
 
   _onItemTapped(int index) {
@@ -33,7 +36,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Playground',
-      theme: ThemeData(primaryColor: Colors.deepPurpleAccent),
+      theme: ThemeData(primaryColor: Colors.deepPurpleAccent, accentColor: Colors.deepPurpleAccent),
       home: Scaffold(
         appBar: AppBar(
           title: Text('Flutter Playground'),
@@ -65,6 +68,15 @@ class _AppState extends State<App> {
                         onTap: () {
                           setState(() {
                             _selectedWidget = _routeMap['/random_words'];
+                          });
+                          Navigator.pop(context);
+                        },
+                      ),
+                      ListTile(
+                        title: Text('Geolocation'),
+                        onTap: () {
+                          setState(() {
+                            _selectedWidget = _routeMap['/geolocation'];
                           });
                           Navigator.pop(context);
                         },
