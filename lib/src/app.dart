@@ -3,6 +3,7 @@ import 'pages/Home.dart';
 import 'pages/About.dart';
 import 'pages/RandomWord.dart';
 import 'pages/GeoLocation.dart';
+import 'pages/Sensor.dart';
 
 class App extends StatefulWidget {
   @override
@@ -17,12 +18,14 @@ class _AppState extends State<App> {
     '/about': About(),
     '/random_words': RandomWords(),
     '/geolocation': GeoLocation(),
+    '/sensor': Sensor(),
   };
   List<String> _bottomNavigationRouteList = [
     '/home',
     '/about',
     '/random_words',
-    '/geolocation'
+    '/geolocation',
+    '/sensor'
   ];
 
   _onItemTapped(int index) {
@@ -77,6 +80,15 @@ class _AppState extends State<App> {
                         onTap: () {
                           setState(() {
                             _selectedWidget = _routeMap['/geolocation'];
+                          });
+                          Navigator.pop(context);
+                        },
+                      ),
+                      ListTile(
+                        title: Text('Sensor'),
+                        onTap: () {
+                          setState(() {
+                            _selectedWidget = _routeMap['/sensor'];
                           });
                           Navigator.pop(context);
                         },
