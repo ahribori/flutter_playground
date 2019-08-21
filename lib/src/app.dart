@@ -6,6 +6,7 @@ import 'pages/GeoLocation.dart';
 import 'pages/Sensor.dart';
 import 'pages/SMS.dart';
 import 'pages/Painting.dart';
+import 'pages/ProviderExample.dart';
 
 class App extends StatefulWidget {
   @override
@@ -23,6 +24,7 @@ class _AppState extends State<App> {
     '/sensor': Sensor(),
     '/sms': SMS(),
     '/painting': Painting(),
+    '/provider': ProviderExample(),
   };
   List<String> _bottomNavigationRouteList = [
     '/home',
@@ -31,7 +33,8 @@ class _AppState extends State<App> {
     '/geolocation',
     '/sensor',
     '/sms',
-    '/painting'
+    '/painting',
+    '/provider'
   ];
 
   _onItemTapped(int index) {
@@ -45,7 +48,9 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Playground',
-      theme: ThemeData(primaryColor: Colors.deepPurpleAccent, accentColor: Colors.deepPurpleAccent),
+      theme: ThemeData(
+          primaryColor: Colors.deepPurpleAccent,
+          accentColor: Colors.deepPurpleAccent),
       home: Scaffold(
         appBar: AppBar(
           title: Text('Flutter Playground'),
@@ -113,6 +118,15 @@ class _AppState extends State<App> {
                         onTap: () {
                           setState(() {
                             _selectedWidget = _routeMap['/painting'];
+                          });
+                          Navigator.pop(context);
+                        },
+                      ),
+                      ListTile(
+                        title: Text('Provider Example'),
+                        onTap: () {
+                          setState(() {
+                            _selectedWidget = _routeMap['/provider'];
                           });
                           Navigator.pop(context);
                         },
