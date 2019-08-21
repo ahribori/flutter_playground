@@ -7,6 +7,7 @@ import 'pages/Sensor.dart';
 import 'pages/SMS.dart';
 import 'pages/Painting.dart';
 import 'pages/ProviderExample.dart';
+import 'pages/FetchData.dart';
 
 class App extends StatefulWidget {
   @override
@@ -25,6 +26,7 @@ class _AppState extends State<App> {
     '/sms': SMS(),
     '/painting': Painting(),
     '/provider': ProviderExample(),
+    '/fetch_data': FetchData(),
   };
   List<String> _bottomNavigationRouteList = [
     '/home',
@@ -34,7 +36,8 @@ class _AppState extends State<App> {
     '/sensor',
     '/sms',
     '/painting',
-    '/provider'
+    '/provider',
+    '/fetch_data'
   ];
 
   _onItemTapped(int index) {
@@ -127,6 +130,15 @@ class _AppState extends State<App> {
                         onTap: () {
                           setState(() {
                             _selectedWidget = _routeMap['/provider'];
+                          });
+                          Navigator.pop(context);
+                        },
+                      ),
+                      ListTile(
+                        title: Text('Fetch Data'),
+                        onTap: () {
+                          setState(() {
+                            _selectedWidget = _routeMap['/fetch_data'];
                           });
                           Navigator.pop(context);
                         },
