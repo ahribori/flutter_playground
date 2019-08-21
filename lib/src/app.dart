@@ -5,6 +5,7 @@ import 'pages/RandomWord.dart';
 import 'pages/GeoLocation.dart';
 import 'pages/Sensor.dart';
 import 'pages/SMS.dart';
+import 'pages/Painting.dart';
 
 class App extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _AppState extends State<App> {
     '/geolocation': GeoLocation(),
     '/sensor': Sensor(),
     '/sms': SMS(),
+    '/painting': Painting(),
   };
   List<String> _bottomNavigationRouteList = [
     '/home',
@@ -28,7 +30,8 @@ class _AppState extends State<App> {
     '/random_words',
     '/geolocation',
     '/sensor',
-    '/sms'
+    '/sms',
+    '/painting'
   ];
 
   _onItemTapped(int index) {
@@ -101,6 +104,15 @@ class _AppState extends State<App> {
                         onTap: () {
                           setState(() {
                             _selectedWidget = _routeMap['/sms'];
+                          });
+                          Navigator.pop(context);
+                        },
+                      ),
+                      ListTile(
+                        title: Text('Painting'),
+                        onTap: () {
+                          setState(() {
+                            _selectedWidget = _routeMap['/painting'];
                           });
                           Navigator.pop(context);
                         },
