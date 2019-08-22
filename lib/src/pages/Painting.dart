@@ -1,5 +1,33 @@
 import 'package:flutter/material.dart';
 
+class MyPainter extends CustomPainter {
+  Paint _paint;
+
+  MyPainter() {
+    Rect rect = new Rect.fromPoints(Offset(0, -2500), Offset(0, 200));
+
+    final Gradient gradient = new LinearGradient(colors: <Color>[
+      Colors.deepPurpleAccent.withAlpha(99),
+      Colors.deepPurpleAccent,
+    ], begin: Alignment(0, 0), end: Alignment(1, 1));
+
+    _paint = Paint()
+      ..shader = gradient.createShader(rect)
+      ..color = Colors.deepPurpleAccent
+      ..strokeCap = StrokeCap.round;
+  }
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas.drawCircle(Offset(0, -400), 500, _paint);
+  }
+
+  @override
+  bool shouldRepaint(MyPainter oldDelegate) {
+    return false;
+  }
+}
+
 class Painting extends StatefulWidget {
   @override
   _PaintingState createState() => _PaintingState();
@@ -8,14 +36,12 @@ class Painting extends StatefulWidget {
 class _PaintingState extends State<Painting> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Text(
-          "안녕!!!!",
+    return Stack(
+      children: <Widget>[
+        CustomPaint(
+          painter: MyPainter(),
         ),
-        transform: Matrix4.rotationZ(45 * 3.141592 / 180),
-
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-            color: Colors.amber, borderRadius: BorderRadius.circular(5)));
+      ],
+    );
   }
 }
