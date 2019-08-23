@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/src/pages/GoogleLogin.dart';
 import 'pages/Home.dart';
 import 'pages/About.dart';
 import 'pages/RandomWord.dart';
@@ -27,6 +28,7 @@ class _AppState extends State<App> {
     '/painting': Painting(),
     '/provider': ProviderExample(),
     '/fetch_data': FetchData(),
+    '/google_login': GoogleLogin(),
   };
   List<String> _bottomNavigationRouteList = [
     '/home',
@@ -37,7 +39,8 @@ class _AppState extends State<App> {
     '/sms',
     '/painting',
     '/provider',
-    '/fetch_data'
+    '/fetch_data',
+    '/google_login'
   ];
 
   _onItemTapped(int index) {
@@ -139,6 +142,15 @@ class _AppState extends State<App> {
                         onTap: () {
                           setState(() {
                             _selectedWidget = _routeMap['/fetch_data'];
+                          });
+                          Navigator.pop(context);
+                        },
+                      ),
+                      ListTile(
+                        title: Text('Google Login'),
+                        onTap: () {
+                          setState(() {
+                            _selectedWidget = _routeMap['/google_login'];
                           });
                           Navigator.pop(context);
                         },
