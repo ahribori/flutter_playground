@@ -43,5 +43,28 @@
 	<false/>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>This app needs access to location when open.</string>
+
+    <!-- Facebook Login configuration -->
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb489682558261927</string>
+            </array>
+        </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>489682558261927</string>
+    <key>FacebookDisplayName</key>
+    <string>Flutter playground</string>
+
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-share-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+    </array>
 </dict>
 </plist>

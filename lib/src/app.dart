@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/src/pages/GoogleLogin.dart';
+import 'pages/FacebookLogin.dart';
 import 'pages/Home.dart';
 import 'pages/About.dart';
 import 'pages/RandomWord.dart';
@@ -29,6 +30,7 @@ class _AppState extends State<App> {
     '/provider': ProviderExample(),
     '/fetch_data': FetchData(),
     '/google_login': GoogleLogin(),
+    '/fb_login': FacebookLoginExample(),
   };
   List<String> _bottomNavigationRouteList = [
     '/home',
@@ -40,7 +42,8 @@ class _AppState extends State<App> {
     '/painting',
     '/provider',
     '/fetch_data',
-    '/google_login'
+    '/google_login',
+    '/fb_login',
   ];
 
   _onItemTapped(int index) {
@@ -151,6 +154,15 @@ class _AppState extends State<App> {
                         onTap: () {
                           setState(() {
                             _selectedWidget = _routeMap['/google_login'];
+                          });
+                          Navigator.pop(context);
+                        },
+                      ),
+                      ListTile(
+                        title: Text('Facebook Login'),
+                        onTap: () {
+                          setState(() {
+                            _selectedWidget = _routeMap['/fb_login'];
                           });
                           Navigator.pop(context);
                         },
